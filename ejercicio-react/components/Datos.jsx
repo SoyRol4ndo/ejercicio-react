@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import userContext from '../context/userContext';
+import Card from './Card';
 
 const Datos = () => {
 
@@ -33,6 +34,7 @@ const Datos = () => {
             </div>
             <div>
               <h3>Repositorios recientes</h3>
+              <Card />
             </div>
           </div>
           <input
