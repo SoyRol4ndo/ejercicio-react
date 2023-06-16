@@ -5,7 +5,7 @@ const Form = () => {
 
   // Obtener el context de Usuario
   const usuarioContext = useContext(userContext);
-  const { leerInput } = usuarioContext;
+  const { leerInput, consultarAPI } = usuarioContext;
 
   // State de usuario
   const [user, setuser] = useState('');
@@ -23,6 +23,7 @@ const Form = () => {
     leerInput(user);
 
     // Mandar a consultar la API
+    consultarAPI(user);
 
 
     // Reiniciar el form
