@@ -76,7 +76,6 @@ const UserState = props => {
     }
   };
 
-
   // Guardar datos del usuario en el state
   const guardarDatosUsuario = (datos) => {
     dispatch({
@@ -95,7 +94,6 @@ const UserState = props => {
 
   // Limpiar los resultados
   const limpiarResultados = () => {
-    console.log('limpiando');
     dispatch({
       type: LIMPIAR_DATOS
     });
