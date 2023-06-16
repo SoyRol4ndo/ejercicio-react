@@ -12,39 +12,44 @@ const Datos = () => {
   const { foto, username, bibliografia, seguidores, repospublic } = datosusuario;
 
   return (
-    <div>
+    <>
       {(datosrepositorio.length === 0) ? (
-        <p>Todavia no se carga</p>
+        <p>Cargando...</p>
       ) : (
-        <div >
-          <div>
+        <div className='container'>
+          <div className='container-logo'>
             <img
+              className='datos-img'
               src={foto}
-              alt={`Foto de perfil de ${username}`} />
-            <div>
-              <h2>{username}</h2>
-              <p>Biografía: {bibliografia}</p>
-            </div>
+              alt={`Foto de perfil de ${username}`}
+            />
+            <h2>{username}</h2>
+          </div>
 
-          </div>
           <div>
-            <div>
-              <p>Seguidores: {seguidores}</p>
-              <p>Repositorios públicos: {repospublic}</p>
-            </div>
-            <div>
-              <h3>Repositorios recientes</h3>
-              <Card />
-            </div>
+            <p>Biografía: <span>{bibliografia}</span> </p>
           </div>
-          <input
-            type='button'
-            value='Volver'
-            onClick={limpiarResultados}
-          />
+
+          <div>
+            <p className=''>Seguidores: <span>{seguidores}</span></p>
+            <p>Repositorios públicos:<span> {repospublic}</span></p>
+          </div>
+
+          <div>
+            <p>Repositorios recientes:</p>
+            <Card />
+          </div>
+          <div className='btn-atras'>
+            <button
+              type='button'
+              className='btn btn-datos'
+              onClick={limpiarResultados}
+            >Volver</button>
+          </div>
+
         </div>
       )}
-    </div>
+    </>
   );
 };
 

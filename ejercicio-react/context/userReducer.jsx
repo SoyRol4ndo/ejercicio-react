@@ -3,7 +3,7 @@ import {
   GUARDAR_DATOS_USUARIO,
   GUARDAR_REPOSITORIOS_USUARIO,
   LIMPIAR_DATOS
-} from "../src/types";
+} from "../types";
 
 
 export default (state, action) => {

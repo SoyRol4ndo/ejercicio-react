@@ -33,22 +33,32 @@ const Form = () => {
 
 
   return (
+
     <form
       onSubmit={onSubmitUser}
+      className='form'
     >
-      <label htmlFor="user" >User: </label>
+      <fieldset className='fieldset'>
+        <legend>Usuario Github</legend>
 
-      <input
-        type="text"
-        placeholder='User GitHub'
-        name='user'
-        value={user}
-        onChange={e => setuser(e.target.value)}
-      />
+        <div>
+          <label htmlFor="user" >User: </label>
 
-      <input type="submit" />
+          <input
+            className='input-form'
+            type="text"
+            placeholder='User GitHub'
+            name='user'
+            value={user}
+            id='user'
+            onChange={e => setuser(e.target.value)}
+          />
+        </div>
+        <button
+          className='btn'
+          type="submit">Buscar</button>
+      </fieldset>
     </form>
-
   );
 };
 

@@ -7,7 +7,7 @@ import {
   GUARDAR_DATOS_USUARIO,
   GUARDAR_REPOSITORIOS_USUARIO,
   LIMPIAR_DATOS
-} from "../src/types";
+} from "../types";
 
 
 const UserState = props => {
@@ -64,13 +64,18 @@ const UserState = props => {
       const response = await axios.get(repoUrl);
       const repositorios = response.data;
 
-      // Pasar los datos de los repositorios al state
-      guardarDatosRepositorio(repositorios);
+      // Filtrar ultimos 4 repositorios
+      const sortedRepos = repositorios
+        .filter(repo => !repo.fork)
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
+      // Pasar los datos de los repositorios al state
+      guardarDatosRepositorio(sortedRepos.slice(0, 4));
     } catch (error) {
       console.log(error);
     }
   };
+
 
   // Guardar datos del usuario en el state
   const guardarDatosUsuario = (datos) => {
