@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import userContext from '../context/userContext';
 
 const Form = () => {
+
+  // Obtener el context de Usuario
+  const usuarioContext = useContext(userContext);
+  const { leerInput } = usuarioContext;
 
   // State de usuario
   const [user, setuser] = useState('');
@@ -15,7 +20,7 @@ const Form = () => {
       return;
     }
     // Pasar el usuario al state general
-
+    leerInput(user);
 
     // Mandar a consultar la API
 
@@ -23,6 +28,8 @@ const Form = () => {
     // Reiniciar el form
     setuser('');
   };
+
+
 
   return (
     <form
