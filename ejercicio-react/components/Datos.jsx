@@ -14,7 +14,7 @@ const Datos = () => {
   return (
     <>
       {(datosrepositorio.length === 0) ? (
-        <p>Cargando...</p>
+        <div class="spinner"></div>
       ) : (
         <div className='container'>
           <div className='container-logo'>
@@ -42,7 +42,7 @@ const Datos = () => {
           <div className='btn-atras'>
             <button
               type='button'
-              className='btn btn-datos'
+              className='btn'
               onClick={limpiarResultados}
             >Volver</button>
           </div>

@@ -13,7 +13,7 @@ const Card = () => {
         <li
           key={datos.id}
         >
-          <h4>{datos.name}: {datos.description}</h4>
+          <h4>{datos.name}: <span>{datos.description}</span></h4>
         </li>
       ))}
     </ul>

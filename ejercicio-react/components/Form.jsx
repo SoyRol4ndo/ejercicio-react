@@ -39,7 +39,7 @@ const Form = () => {
       className='form'
     >
       <fieldset className='fieldset'>
-        <legend>Usuario Github</legend>
+        <legend>Usuario GitHub</legend>
 
         <div>
           <label htmlFor="user" >User: </label>
