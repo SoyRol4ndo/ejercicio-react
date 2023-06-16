@@ -1,1 +1,1 @@
-# ejercicio-rect
+# ejercicio-react
