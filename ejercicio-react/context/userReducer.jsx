@@ -2,8 +2,8 @@ import {
   LEER_INPUT,
   GUARDAR_DATOS_USUARIO,
   GUARDAR_REPOSITORIOS_USUARIO,
-} from "../../types";
-
+  LIMPIAR_DATOS
+} from "../src/types";
 
 
 export default (state, action) => {
@@ -22,6 +22,13 @@ export default (state, action) => {
       return {
         ...state,
         datosrepositorio: action.payload
+      };
+    case LIMPIAR_DATOS:
+      return {
+        ...state,
+        username: '',
+        datosusuario: {},
+        datosrepositorio: []
       };
 
     default:

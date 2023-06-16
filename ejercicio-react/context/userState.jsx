@@ -5,8 +5,9 @@ import axios from 'axios';
 import {
   LEER_INPUT,
   GUARDAR_DATOS_USUARIO,
-  GUARDAR_REPOSITORIOS_USUARIO
-} from "../../types";
+  GUARDAR_REPOSITORIOS_USUARIO,
+  LIMPIAR_DATOS
+} from "../src/types";
 
 
 const UserState = props => {
@@ -87,6 +88,14 @@ const UserState = props => {
     });
   };
 
+  // Limpiar los resultados
+  const limpiarResultados = () => {
+    console.log('limpiando');
+    dispatch({
+      type: LIMPIAR_DATOS
+    });
+  };
+
 
   return (
     <userContext.Provider
@@ -96,6 +105,7 @@ const UserState = props => {
         datosrepositorio: state.datosrepositorio,
         leerInput,
         consultarAPI,
+        limpiarResultados
       }}
     >
       {props.children}
