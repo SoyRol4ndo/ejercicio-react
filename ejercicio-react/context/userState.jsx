@@ -2,7 +2,11 @@ import React, { useReducer } from 'react';
 import userContext from './userContext';
 import userReducer from './userReducer';
 import axios from 'axios';
-import { LEER_INPUT } from "../../types";
+import {
+  LEER_INPUT,
+  GUARDAR_DATOS_USUARIO,
+  GUARDAR_REPOSITORIOS_USUARIO
+} from "../../types";
 
 
 const UserState = props => {
@@ -42,14 +46,45 @@ const UserState = props => {
       };
 
       // Llamado a la funcion para extraer repositorios
-
+      obtenerRepositorios(url);
 
       // Pasar los datos del usuario al state
-
+      guardarDatosUsuario(datos);
 
     } catch (error) {
       console.error(error);
     }
+  };
+
+  // Consultar API para repositorios 
+  const obtenerRepositorios = async (url) => {
+    const repoUrl = `${url}/repos?sort=created`;
+    try {
+      const response = await axios.get(repoUrl);
+      const repositorios = response.data;
+
+      // Pasar los datos de los repositorios al state
+      guardarDatosRepositorio(repositorios);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Guardar datos del usuario en el state
+  const guardarDatosUsuario = (datos) => {
+    dispatch({
+      type: GUARDAR_DATOS_USUARIO,
+      payload: datos
+    });
+  };
+
+  // Guardar datos de repositorios
+  const guardarDatosRepositorio = (repositorios) => {
+    dispatch({
+      type: GUARDAR_REPOSITORIOS_USUARIO,
+      payload: repositorios
+    });
   };
 
 
