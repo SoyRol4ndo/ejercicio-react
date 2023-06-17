@@ -14,7 +14,7 @@ const Datos = () => {
   return (
     <>
       {(datosrepositorio.length === 0) ? (
-        <div class="spinner"></div>
+        <div className="spinner"></div>
       ) : (
         <div className='container'>
           <div className='container-logo'>
