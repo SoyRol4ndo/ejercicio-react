@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import userContext from '../context/userContext';
 
 const Form = () => {
@@ -22,13 +22,15 @@ const Form = () => {
     // Pasar el usuario al state general
     leerInput(user);
 
-    // Mandar a consultar la API
-    consultarAPI(user);
-
-
     // Reiniciar el form
     setuser('');
   };
+
+  useEffect(() => {
+
+    // Mandar a consultar la API
+    consultarAPI(user);
+  }, [user]);
 
 
 
