@@ -27,10 +27,10 @@ body {
   font-weight: 700;
 }
 
-.btn:hover {
+/* .btn:hover {
   background-color: #242424;
   color: white;
-}
+} */
 
 
 .input-form {
@@ -83,6 +83,29 @@ body {
   font-weight: 400;
 }
 
+.consultando {
+  margin: 0 auto;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.consultando .btn {
+  margin: 0;
+}
+
+.btn-atras .btn:hover {
+  background-color: #242424;
+  color: white;
+  cursor: pointer;
+}
+
+.consultando .btn:hover {
+  background-color: #242424;
+  color: white;
+  cursor: pointer;
+}
 
 /***************** SPINNER ******************/
 .spinner {

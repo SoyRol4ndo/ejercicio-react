@@ -5,7 +5,7 @@ const Form = () => {
 
   // Obtener el context de Usuario
   const usuarioContext = useContext(userContext);
-  const { leerInput, consultarAPI } = usuarioContext;
+  const { leerInput, consultarAPI, limpiarResultados } = usuarioContext;
 
   // State de usuario
   const [user, setuser] = useState('');
@@ -15,8 +15,8 @@ const Form = () => {
     e.preventDefault();
 
     // Validar que no este vacio el input
-    if (user.trim() === '') {
-      console.log('error');
+    while (user.trim() === '') {
+      limpiarResultados();
       return;
     }
     // Pasar el usuario al state general
@@ -31,7 +31,6 @@ const Form = () => {
     // Mandar a consultar la API
     consultarAPI(user);
   }, [user]);
-
 
 
   return (
@@ -58,7 +57,9 @@ const Form = () => {
         </div>
         <button
           className='btn'
-          type="submit">Buscar</button>
+          type="submit"
+          disabled={!user}
+        >Buscar</button>
       </fieldset>
     </form>
   );
