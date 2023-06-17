@@ -8,7 +8,7 @@ const Datos = () => {
   const usuarioContext = useContext(userContext);
   const { datosusuario, datosrepositorio, limpiarResultados } = usuarioContext;
 
-  // Destructiring de las propiedades del usuario
+  // Destructuring de las propiedades del usuario
   const { foto, username, bibliografia, seguidores, repospublic } = datosusuario;
 
   return (
