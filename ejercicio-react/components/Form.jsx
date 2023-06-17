@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import userContext from '../context/userContext';
 
 const Form = () => {
 
   // Obtener el context de Usuario
   const usuarioContext = useContext(userContext);
-  const { leerInput, consultarAPI, limpiarResultados } = usuarioContext;
+  const { leerInput, consultarAPI } = usuarioContext;
 
   // State de usuario
   const [user, setuser] = useState('');
@@ -14,24 +14,15 @@ const Form = () => {
   const onSubmitUser = e => {
     e.preventDefault();
 
-    // Validar que no este vacio el input
-    while (user.trim() === '') {
-      limpiarResultados();
-      return;
-    }
     // Pasar el usuario al state general
     leerInput(user);
+
+    // Mandar a consultar la API
+    consultarAPI(user);
 
     // Reiniciar el form
     setuser('');
   };
-
-  useEffect(() => {
-
-    // Mandar a consultar la API
-    consultarAPI(user);
-  }, [user]);
-
 
   return (
 
@@ -58,7 +49,7 @@ const Form = () => {
         <button
           className='btn'
           type="submit"
-          disabled={!user}
+          disabled={!user.trim()}
         >Buscar</button>
       </fieldset>
     </form>
